@@ -1,0 +1,18 @@
+<div class="table-responsive">
+  <h1 class="h1">Directory list</h1>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Directory name</th>
+        <th>Action</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of directoryDetails">
+        <td>{{item.Name}}</td>
+        <td><a class="btn btn-primary" [routerLink] = "['/landing-container/add-directory',item.Id]" routerLinkActive="active">Edit</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

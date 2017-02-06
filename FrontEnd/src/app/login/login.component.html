@@ -1,0 +1,36 @@
+<div class="col-md-8 login-wrap">
+
+<!--<form #loginForm="ngForm" class="login-form" (ngSubmit)="OnSignIn(loginForm)"  >-->
+    <form #loginForm="ngForm" class="login-form" (ngSubmit)="loginForm.valid && OnSignIn(loginForm)" novalidate>
+    <div class="form-group" [ngClass]="{ 'has-error': loginForm.submitted && !username.valid || loginForm.submitted && !password.valid}">
+
+  <h1 class="h1">Sign in</h1>
+  <div class="form-group">
+    <!--<label for="username">Username</label>-->
+    <label for="username">Username</label> <span *ngIf="loginForm.submitted && !username.valid" class="help-block">Username is required</span>
+
+    <!--<input type="text" class="inputtext form-control" name="username" required ngModel>-->
+
+    <input type="text" name="username" class="inputtext form-control" id="username" [(ngModel)]="model.username" #username="ngModel" required maxLength="50">
+
+  </div>
+  <div class="form-group">
+    <!--<label for="password">Password</label>-->
+    <label for="password">Password</label> <span *ngIf="loginForm.submitted && !password.valid" class="help-block">Password is required</span>
+
+    <!--<input type="password" class="inputtext form-control" name="password" required ngModel>-->
+            <input type="password" name="password" id="password" [(ngModel)]="model.password" class="inputtext form-control" #password="ngModel" required maxLength="50">
+
+  </div>
+  <div class="checkbox">
+    <label><input type="checkbox"> Remember me</label>
+  </div>
+    <div class="form-group">
+
+  <!--<button type="submit" class="btn btn-default" [disabled]="!loginForm.valid">Sign in</button>-->
+            <button type="submit" name="login-submit" id="login-submit" class="btn btn-default" value="Submit">Sign in</button>
+
+    </div>
+    </div>
+</form>
+</div>

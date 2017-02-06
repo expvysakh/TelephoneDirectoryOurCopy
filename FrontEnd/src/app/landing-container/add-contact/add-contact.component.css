@@ -1,0 +1,6 @@
+.addcontactform label{
+          color:#000;
+}
+.addcontactform input, .addcontactform textarea, .addcontactform select {
+          border: 1px solid #cccccc;
+}

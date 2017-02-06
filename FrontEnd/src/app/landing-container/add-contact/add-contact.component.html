@@ -1,0 +1,47 @@
+<div class="col-md-10">
+  <br /><br /><br />
+  <form #contactForm= "ngForm" (ngSubmit)= "submitContact(contactForm)" class="form-horizontal">
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="firstname">First name: </label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="firstname" name= "firstname" placeholder="Enter first name" maxLength="50" required pattern="[a-zA-Z]+" [(ngModel)]= FirstName>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="lastname">Last name: </label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="lastname" name= "lastname" placeholder="Enter first name" maxLength="50" required pattern="[a-zA-Z]+" [(ngModel)]= LastName>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="telephonenumber">Telephone number: </label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="telephonenumber" name= "telephone" placeholder="Enter telephone number" required maxLength="10" pattern="[0-9]{10}" [(ngModel)]= TelephoneNumber>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="address">Address: </label>
+      <div class="col-sm-10">
+        <textarea class="form-control" id="address" placeholder="Enter address" maxLength="500" required pattern="[a-zA-Z0-9]+" name= "address" [(ngModel)]= Address></textarea>
+      </div>
+    </div>
+
+    <div class="form-group">
+           <label class="control-label col-sm-2" for="address">Select Directory: </label>
+      <div class="col-sm-10">
+
+        <select [(ngModel)]= "Directory" class= "selectpicker form-control" #selectoperator name= "Directory" >
+          <option value="{{item.Id}}" *ngFor="let item of DirectoryList">{{item.Name}}</option>
+        </select>
+      </div>
+    </div>   
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-primary">Save Contact</button>
+      </div>
+    </div>
+  </form>
+</div>
